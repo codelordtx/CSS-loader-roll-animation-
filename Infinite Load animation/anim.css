@@ -1,0 +1,118 @@
+body {
+  background: rgb(0, 0, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.box {
+  height: 200px;
+  width: 200px;
+  background: rgb(100, 100, 100);
+  border-radius: 50%;
+  animation: spinn 0.8s linear infinite;
+  scale: 0.7;
+}
+.box::before {
+  content: "";
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: red;
+  position: absolute;
+  top: 100%;
+}
+
+.box::after {
+  content: "";
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgb(60, 255, 0);
+  position: absolute;
+  right: -20%;
+  left: 70%;
+  top: -30%;
+}
+@keyframes spinn {
+  from {
+    transform: rotate(0deg);
+    background-color: blue;
+    scale: 0.7;
+  }
+  to {
+    transform: rotate(360deg);
+    scale: 1;
+  }
+}
+
+.box:hover,
+.outer:hover {
+  animation: none;
+}
+
+.outer {
+  padding: 5px;
+  border: 1px solid transparent;
+  border-top: 5px solid rgb(0, 255, 0);
+  border-bottom: 5px solid rgb(255, 0, 200);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+@keyframes spin {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.outer:before {
+  content: "";
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+  position: absolute;
+  top: 43%;
+  left: 12%;
+  animation: changb 0.7s linear infinite;
+}
+
+.outer:after {
+  content: "";
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+  position: absolute;
+  top: 43%;
+  right: 12%;
+  animation: changc 0.7s linear infinite;
+}
+
+@keyframes changc {
+  0% {
+    background-color: white;
+  }
+  50% {
+    background-color: rgb(0, 255, 0);
+    scale: 1.2;
+  }
+  100% {
+    background-color: red;
+  }
+}
+
+@keyframes changb {
+  0% {
+    background-color: white;
+  }
+  50% {
+    background-color: rgb(255, 0, 0);
+    scale: 1.2;
+  }
+  100% {
+    background-color: rgb(21, 255, 0);
+  }
+}
